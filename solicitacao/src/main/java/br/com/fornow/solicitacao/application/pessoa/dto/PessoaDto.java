@@ -1,8 +1,6 @@
-package br.com.fornow.solicitacao;
+package br.com.fornow.solicitacao.application.pessoa.dto;
 
 import java.util.List;
-
-import br.com.fornow.solicitacao.controller.ContatoDto;
 
 public class PessoaDto {
 	private long id;

@@ -1,4 +1,4 @@
-package br.com.fornow.solicitacao.controller;
+package br.com.fornow.solicitacao.application.pessoa.dto;
 
 public class ContatoDto {
 	private String numero;
