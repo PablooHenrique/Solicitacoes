@@ -3,11 +3,13 @@ package br.com.fornow.solicitacao.application.pessoa.dto;
 import java.util.List;
 
 public class PessoaDto {
+	
 	private long id;
 	private String nome;
 	private String documento;
 	private String tipo;
 	private String email;
+	private EnderecoDto endereco;
 	private List<ContatoDto> contatos;
 	
 	public String getNome() {
@@ -45,5 +47,11 @@ public class PessoaDto {
 	}
 	public void setContatos(List<ContatoDto> contatos) {
 		this.contatos = contatos;
+	}
+	public EnderecoDto getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(EnderecoDto endereco) {
+		this.endereco = endereco;
 	}
 }

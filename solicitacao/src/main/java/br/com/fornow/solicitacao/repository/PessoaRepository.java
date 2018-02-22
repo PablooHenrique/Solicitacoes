@@ -63,4 +63,9 @@ public class PessoaRepository {
 		session.close();
 		return find;
 	}
+
+	public Pessoa listarPorId(long id) {
+		Pessoa pessoa = procurarPessoaPorId(id);
+		return pessoa;
+	}
 }

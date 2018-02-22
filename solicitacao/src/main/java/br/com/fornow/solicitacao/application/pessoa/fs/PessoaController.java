@@ -20,32 +20,41 @@ import br.com.fornow.solicitacao.model.Pessoa;
 @RequestMapping("/pessoas")
 public class PessoaController {
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<?> listaPessoas() {
-	List<PessoaDto> pessoas = new PessoaApplication().listar();
-	if (pessoas.isEmpty()) {
-	    return new ResponseEntity<List<Pessoa>>(HttpStatus.NO_CONTENT);
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<?> listaPessoas() {
+		List<PessoaDto> pessoas = new PessoaApplication().listar();
+		if (pessoas.isEmpty()) {
+			return new ResponseEntity<List<Pessoa>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<PessoaDto>>(pessoas, HttpStatus.OK);
 	}
-	return new ResponseEntity<List<PessoaDto>>(pessoas, HttpStatus.OK);
-    }
+	
+	@RequestMapping(value="/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> listaPorId(@PathVariable("id") long id) {
+		PessoaDto pessoa = new PessoaApplication().listarPorId(id);
+		if (pessoa == null) {
+			return new ResponseEntity<List<Pessoa>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<PessoaDto>(pessoa, HttpStatus.OK);
+	}
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> salvaPessoa(@RequestBody PessoaDto pessoa, UriComponentsBuilder ucBuilder) {
-	new PessoaApplication().salvar(pessoa);
-	HttpHeaders headers = new HttpHeaders();
-	headers.setLocation(ucBuilder.path("/lancamentos/{id}").buildAndExpand(pessoa.getId()).toUri());
-	return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
-    }
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<?> salvaPessoa(@RequestBody PessoaDto pessoa, UriComponentsBuilder ucBuilder) {
+		new PessoaApplication().salvar(pessoa);
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(ucBuilder.path("/lancamentos/{id}").buildAndExpand(pessoa.getId()).toUri());
+		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+	}
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public ResponseEntity<?> atualizaPessoa(@PathVariable("id") long id, @RequestBody PessoaDto pessoa) {
-	new PessoaApplication().atualizar(id, pessoa);
-	return new ResponseEntity<PessoaDto>(pessoa, HttpStatus.OK);
-    }
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> atualizaPessoa(@PathVariable("id") long id, @RequestBody PessoaDto pessoa) {
+		new PessoaApplication().atualizar(id, pessoa);
+		return new ResponseEntity<PessoaDto>(pessoa, HttpStatus.OK);
+	}
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deletaPessoa(@PathVariable("id") long id) {
-	new PessoaApplication().deletar(id);
-	return new ResponseEntity<Pessoa>(HttpStatus.NO_CONTENT);
-    }
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deletaPessoa(@PathVariable("id") long id) {
+		new PessoaApplication().deletar(id);
+		return new ResponseEntity<Pessoa>(HttpStatus.NO_CONTENT);
+	}
 }

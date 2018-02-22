@@ -1,19 +1,27 @@
 package br.com.fornow.solicitacao.application.pessoa.dto;
 
 public class ContatoDto {
+	
+	private String pessoaContato;
 	private String numero;
 	private String tipo;
 	
-	public String getNumero_contato() {
+	public String getNumero() {
 		return numero;
 	}
-	public void setNumero_contato(String numero_contato) {
-		this.numero = numero_contato;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
-	public String getTipo_contato() {
+	public String getTipo() {
 		return tipo;
 	}
-	public void setTipo_contato(String tipo_contato) {
-		this.tipo = tipo_contato;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public String getPessoaContato() {
+		return pessoaContato;
+	}
+	public void setPessoaContato(String pessoaContato) {
+		this.pessoaContato = pessoaContato;
 	}
 }
