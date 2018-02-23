@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.fornow.solicitacao.application.produto.EmbalagensApplication;
 import br.com.fornow.solicitacao.application.produto.VolumeApplication;
-import br.com.fornow.solicitacao.application.produto.dto.EmbalagemDto;
 import br.com.fornow.solicitacao.application.produto.dto.VolumeDto;
 
 @RestController

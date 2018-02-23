@@ -3,8 +3,9 @@ package br.com.fornow.solicitacao.application.produto.dto;
 public class VolumeDto {
 	
 	private long id;
+	private String codigo;
 	private String descricao;
-	private Double quantidadeDeUnidadesPorVolume;
+	private Double unidadesPorVolume;
 	
 	public long getId() {
 		return id;
@@ -18,10 +19,16 @@ public class VolumeDto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Double getQuantidadeDeUnidadesPorVolume() {
-		return quantidadeDeUnidadesPorVolume;
+	public String getCodigo() {
+		return codigo;
 	}
-	public void setQuantidadeDeUnidadesPorVolume(Double quantidadeDeUnidadesPorVolume) {
-		this.quantidadeDeUnidadesPorVolume = quantidadeDeUnidadesPorVolume;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	public Double getUnidadesPorVolume() {
+		return unidadesPorVolume;
+	}
+	public void setUnidadesPorVolume(Double unidadesPorVolume) {
+		this.unidadesPorVolume = unidadesPorVolume;
 	}
 }

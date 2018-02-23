@@ -3,8 +3,9 @@ package br.com.fornow.solicitacao.application.produto.dto;
 public class EmbalagemDto {
 	
 	private long id;
+	private String codigo;
 	private String descricao;
-	private Double quantidadeUnidadesPorEmbalagem;
+	private Double unidadesPorEmbalagem;
 	
 	public long getId() {
 		return id;
@@ -18,10 +19,16 @@ public class EmbalagemDto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Double getQuantidadeUnidadesPorEmbalagem() {
-		return quantidadeUnidadesPorEmbalagem;
+	public String getCodigo() {
+		return codigo;
 	}
-	public void setQuantidadeUnidadesPorEmbalagem(Double quantidadeUnidadesPorEmbalagem) {
-		this.quantidadeUnidadesPorEmbalagem = quantidadeUnidadesPorEmbalagem;
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	public Double getUnidadesPorEmbalagem() {
+		return unidadesPorEmbalagem;
+	}
+	public void setUnidadesPorEmbalagem(Double unidadesPorEmbalagem) {
+		this.unidadesPorEmbalagem = unidadesPorEmbalagem;
 	}
 }

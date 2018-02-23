@@ -14,13 +14,13 @@ public class VolumeApplication {
 			VolumeDto volume = new VolumeDto();
 			volume.setId(1);
 			volume.setDescricao("Volume Um");
-			volume.setQuantidadeDeUnidadesPorVolume((double) 6.0);
+			volume.setUnidadesPorVolume((double) 6.0);
 			volumes.add(volume);
 			
 			volume = new VolumeDto();
 			volume.setId(2);
 			volume.setDescricao("Embalagem Plastica Coretivo");
-			volume.setQuantidadeDeUnidadesPorVolume((double) 10.0);
+			volume.setUnidadesPorVolume((double) 10.0);
 			volumes.add(volume);
 		}
 	}
@@ -49,7 +49,11 @@ public class VolumeApplication {
 	}
 
 	public VolumeDto listarPorId(long id) {
-		// TODO Auto-generated method stub
+		List<VolumeDto> collect = VolumeApplication.volumes.stream().filter(x -> x.getId() == id).collect(Collectors.toList());
+		if (!collect.isEmpty()) {
+			return collect.get(0);
+		}
+		
 		return null;
 	}
 }

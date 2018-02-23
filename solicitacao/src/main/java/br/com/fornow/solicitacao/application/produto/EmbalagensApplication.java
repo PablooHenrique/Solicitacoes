@@ -15,13 +15,13 @@ public class EmbalagensApplication {
 			EmbalagemDto embalagem = new EmbalagemDto();
 			embalagem.setId(1);
 			embalagem.setDescricao("Embalagem Plastica Para Borracha");
-			embalagem.setQuantidadeUnidadesPorEmbalagem((double) 6.0);
+			embalagem.setUnidadesPorEmbalagem((double) 6.0);
 			embalagens.add(embalagem);
 			
 			embalagem = new EmbalagemDto();
 			embalagem.setId(2);
 			embalagem.setDescricao("Embalagem Plastica Coretivo");
-			embalagem.setQuantidadeUnidadesPorEmbalagem((double) 10.0);
+			embalagem.setUnidadesPorEmbalagem((double) 10.0);
 			embalagens.add(embalagem);
 		}
 	}
