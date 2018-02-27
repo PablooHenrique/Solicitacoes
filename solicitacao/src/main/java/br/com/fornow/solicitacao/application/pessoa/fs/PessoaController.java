@@ -21,8 +21,26 @@ import br.com.fornow.solicitacao.model.Pessoa;
 public class PessoaController {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<?> listaPessoas() {
+	public ResponseEntity<?> lista() {
 		List<PessoaDto> pessoas = new PessoaApplication().listar();
+		if (pessoas.isEmpty()) {
+			return new ResponseEntity<List<Pessoa>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<PessoaDto>>(pessoas, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/listarClientes", method = RequestMethod.GET)
+	public ResponseEntity<?> listaClientes() {
+		List<PessoaDto> pessoas = new PessoaApplication().listarClientes();
+		if (pessoas.isEmpty()) {
+			return new ResponseEntity<List<Pessoa>>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<List<PessoaDto>>(pessoas, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/listarFornecedores", method = RequestMethod.GET)
+	public ResponseEntity<?> listaFornecedores() {
+		List<PessoaDto> pessoas = new PessoaApplication().listarFornecedores();
 		if (pessoas.isEmpty()) {
 			return new ResponseEntity<List<Pessoa>>(HttpStatus.NO_CONTENT);
 		}
